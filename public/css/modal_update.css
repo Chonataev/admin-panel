@@ -1,0 +1,56 @@
+.update_modal{
+  transition: .8s;
+  background-color: teal;
+  position: absolute;
+  height: 60vh;
+  width: 70vw;
+  margin: 20px auto;
+  transform: translateY(0);
+  transform: translateX(-2000px);
+  
+}
+.updateh1{
+  margin: 2%;
+  font-style: 40px;
+}
+.close_btn{
+  width: 50px;
+  height: 50px;
+  left: 50%;
+  top: 50%;
+  font-size: 30px;
+}
+.close_update{
+  justify-content: space-between;
+  display: flex;
+  padding-left: 20px;
+}
+
+.update_input{
+  display: block;
+    width: 500px;
+    height: 60px;
+    font-size: 20px;
+    width: 75%;
+    margin:1% 2%;
+    
+}
+.gallery_input, .update_area{
+  margin:1% 2%;
+}
+.update_btn{
+    width: 200px;
+    height: 40px;
+    margin:1% 2%;
+    place-content: 'jjj';
+}
+
+.modal_p{
+  margin:1% 2%;
+  font-size: 24px;
+  color: white;
+}
+.modal_h1{
+  color: white;
+  font-size: 36px;
+}
