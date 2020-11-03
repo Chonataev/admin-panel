@@ -3,7 +3,9 @@
    class Main{
       private $head;
 
-      function __construct(){}
+      function __construct(){
+         echo "I am construct";
+      }
 
       function setHtmlBlocks($head){
          $this->head = $head;
