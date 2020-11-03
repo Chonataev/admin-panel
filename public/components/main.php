@@ -4,7 +4,7 @@
       private $head;
 
       function __construct(){
-         echo "I am construct";
+
       }
 
       function setHtmlBlocks($head){
@@ -29,7 +29,8 @@
             
             <h4 class="border-bottom border-gray pb-2 mb-4">АВТОРИЗАЦИЯ И РЕГИСТРАЦИЯ</h4>
                <a href="users" class="btn btn-outline-primary col-sm-6  btn-block">Редактировать таблицу Пользователи</a>
-               <a href="groups" class="btn btn-outline-primary col-sm-6  btn-block mb-5">Редактировать таблицу Групп</a>
+               <a href="teachers" class="btn btn-outline-primary col-sm-6  btn-block">Редактировать таблицу Учителей</a>
+               <a href="classes" class="btn btn-outline-primary col-sm-6  btn-block mb-5">Редактировать таблицу Классов</a>
             <h4 class="border-bottom border-gray pb-2 mb-4">КАТАЛОГИ</h4>
                <a href="aboutUs" class="btn btn-outline-primary col-sm-6  btn-block">Редактировать таблицу О нас</a>
                <a href="news" class="btn btn-outline-primary col-sm-6  btn-block">Редактировать таблицу Новости</a>

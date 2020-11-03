@@ -30,8 +30,8 @@
             case 'users':
                $this->view->getUsers();
                break;
-            case 'groups':
-               $this->view->getGroups();
+            case 'classes':
+               $this->view->getClasses();
                break;
             case 'journal':
                $this->view->getJournal();

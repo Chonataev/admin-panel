@@ -4,7 +4,6 @@
    require_once("public/components/aboutUs.php");
    require_once("public/components/news.php");
    require_once("public/components/gallery.php");
-   require_once("public/components/forStudets.php");
    require_once("public/components/diary.php");
    require_once("public/components/error.php");
    require_once("public/authentication/users.php");

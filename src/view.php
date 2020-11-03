@@ -19,7 +19,6 @@
          $this->aboutUs = new AboutUs();
          $this->news = new News();
          $this->gallery = new Gallery();
-         $this->forStudents = new ForStudents();
          $this->diary = new Diary();
          $this->users = new Users();
          $this->classes = new Classes();
@@ -48,10 +47,6 @@
          $this->gallery->getContext();
       }
 
-      function getForStudents(){
-         $this->forStudents->setHtmlBlocks($this->head);
-         $this->forStudents->getContext();
-      }
       function getDiary(){
          $this->diary->setHtmlBlocks($this->head);
          $this->diary->getContext();
@@ -62,7 +57,7 @@
          $this->users->getContext();
       }
 
-      function getGroups(){
+      function getClasses(){
          $this->classes->setHtmlBlocks($this->head);
          $this->classes->getContext();
       }
