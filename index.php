@@ -8,3 +8,4 @@
    }
 
    $controller->printPage($url,$_POST);
+?>

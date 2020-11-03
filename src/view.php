@@ -1,55 +1,79 @@
 <?php
-   require_once("public/template/menu.php");
-   require_once("public/template/newsContent.php");
-   require_once("public/template/subMenu.php");
-   require_once("public/template/aboutUsContent.php");
-   require_once("public/template/forParentsAndStudents.php");
-   require_once("public/template/galeryContent.php");
+   include "libs/routes.php";
 
    class View{
-      private $menu;
-      private $subMenu;
+      private $head;
+      private $main;
       private $aboutUs;
       private $news;
-      private $galery;
-      private $forParrents;
-      private $mainContent;
-      private $model;
-
+      private $gallery;
+      private $diary;
+      private $users;
+      private $classes;
+      private $journal;
+      private $forStudents;
+     
       function __construct(){
-         $this->create = new Create;
-         $this->read = new Read();
-         $this->menu = new Menu();
-         $this->subMenu = new SubMenu();
+         $this->head = new Head;
+         $this->main = new Main();
          $this->aboutUs = new AboutUs();
          $this->news = new News();
-         $this->galery = new GaleryContent();
-         $this->forParrents = new ForParentsAndStudents();
+         $this->gallery = new Gallery();
+         $this->forStudents = new ForStudents();
+         $this->diary = new Diary();
+         $this->users = new Users();
+         $this->classes = new Classes();
+         $this->journal = new Journal();
+         $this->error = new Errors();
+         
 
       }
 
-      function getAboutUsContent(){
-         $this->aboutUs->setHtmlBlocks($this->menu, $this->subMenu);
-         $this->galery->getArr($this->read->getAboutUs());  
+      function getMain(){
+         $this->main->setHtmlBlocks($this->head);
+         $this->main->getContext();
+      }
+
+      function getAboutUs(){
          $this->aboutUs->getContext();
       }
 
-      function getNewsContent(){
-         $this->news->setHtmlBlocks($this->menu, $this->subMenu);
-         $this->news->getArr($this->read->getNews());  
+      function getNews(){ 
+         $this->news->setHtmlBlocks($this->head);
          $this->news->getContext();
       }
 
-      function getGaleryContent(){
-         $this->galery->setHtmlBlocks($this->menu, $this->subMenu);
-         $this->galery->getArr($this->read->getGalery());  
-         $this->galery->getContext();
+      function getGallery(){
+         $this->gallery->setHtmlBlocks($this->head);
+         $this->gallery->getContext();
       }
 
-      function getForParentsContent(){
-         $this->forParrents->setHtmlBlocks($this->menu, $this->subMenu);
-         $this->forParrents->getArr($this->read->getForParents());  
-         $this->forParrents->getContext();
+      function getForStudents(){
+         $this->forStudents->setHtmlBlocks($this->head);
+         $this->forStudents->getContext();
+      }
+      function getDiary(){
+         $this->diary->setHtmlBlocks($this->head);
+         $this->diary->getContext();
+      }
+
+      function getUsers(){
+         $this->users->setHtmlBlocks($this->head);
+         $this->users->getContext();
+      }
+
+      function getGroups(){
+         $this->classes->setHtmlBlocks($this->head);
+         $this->classes->getContext();
+      }
+      function getJournal(){
+         $this->journal->setHtmlBlocks($this->head);
+         $this->journal->getContext();
+      }
+      
+      function getError(){
+         $this->error->setHtmlBlocks($this->head);
+         $this->error->getContext();
       }
      
       

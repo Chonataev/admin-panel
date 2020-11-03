@@ -3,7 +3,7 @@
       private $url;
       private $name;
       private $password;
-      private $bd_name;
+      private $db_name;
 
       function __construct(){
          $this->url = "localhost";
@@ -14,7 +14,7 @@
 
      function getConnectDB(){
       try {
-         $this->mysqli = new mysqli($this->url, $this->name, $this->password, $this->bd_name);
+         $this->mysqli = new mysqli($this->url, $this->name, $this->password, $this->db_name);
          if ($this->mysqli->connect_errno){
            throw new Exception("Conaction failed.");
          }

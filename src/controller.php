@@ -1,52 +1,45 @@
 <?php
    include_once("view.php");
-   require_once("madel/read_madel.php");
-   require_once("madel/create_model.php");
-   require_once("madel/delete_model.php");
-   require_once("madel/update_model.php");
 
    class Controller{
       private $view;
-      private $madel;
-      private $create;
-      private $delete;
-      private $update;
       function __construct(){
          $this->view = new View();
-         $this->madel = new Read();
-         $this->create = new Create();
-         $this->delete = new Delete();
-         $this->update = new Update();
       }
 
       function printPage($url,$arr){
          switch ($url) {
-            case 'aboutus':
-               $this->view->getAboutUsContent();
+            case 'main':
+               $this->view->getMain();
+               break;
+            case 'aboutUs':
+               $this->view->getAboutUs();
                break;
             case 'news':
-               $this->view->getNewsContent();
+               $this->view->getNews();
                break;
-            case 'parents':
-               $this->view->getForParentsContent();
+            case 'gallery':
+               $this->view->getGallery();
                break;
-            case 'galery':
-               $this->view->getGaleryContent();
+            case 'forStudents':
+               $this->view->getForStudents();
                break;
-            case 'create':
-               $this->create->create($arr);
+            case 'diary':
+               $this->view->getDiary();
                break;
-            case 'update':
-               $this->update->update($arr);
+            case 'users':
+               $this->view->getUsers();
                break;
-            case 'delete':
-               $this->delete->delete($arr);
+            case 'groups':
+               $this->view->getGroups();
                break;
-            default:
-            echo 'NOT';
+            case 'journal':
+               $this->view->getJournal();
+               break;
+         default:
+               $this->view->getError();
                break;
          }
       }
-     
-      
-   };
+   }
+?>
