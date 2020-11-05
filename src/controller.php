@@ -1,10 +1,17 @@
 <?php
    include_once("view.php");
+   include_once("model/actions.php");
+   include_once("model/read.php");
 
    class Controller{
       private $view;
+      private $actions;
+      private $read;
       function __construct(){
          $this->view = new View();
+         $this->actions = new Actions();
+         $this->read = new Read();
+         
       }
 
       function printPage($url,$arr){
@@ -35,6 +42,9 @@
                break;
             case 'journal':
                $this->view->getJournal();
+               break;
+            case 'actions':
+               $this->actions->getActions($arr);
                break;
          default:
                $this->view->getError();

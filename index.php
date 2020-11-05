@@ -1,6 +1,5 @@
 <?php
-   require_once("./src/controller.php");
-
+   require_once("src/controller.php");
    $controller = new Controller();
 
    if(isset($_REQUEST)){   
@@ -8,4 +7,5 @@
    }
 
    $controller->printPage($url,$_POST);
+      var_dump($_POST);
 ?>

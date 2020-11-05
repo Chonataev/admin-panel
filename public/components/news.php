@@ -6,8 +6,13 @@
       function __construct(){
       }
 
+      function setHtmlBlocks($head){
+         $this->head = $head;
+      }
+
       function getContext(){
          ?>
+         <?$this->head->getContext();?>
          <div class="container">
             <div class="media d-flex mt-5">
                <a href="main" class="d-flex">

@@ -1,5 +1,5 @@
 <?php
-   class Routes{
+   class DB{
       private $url;
       private $name;
       private $password;
@@ -9,11 +9,12 @@
          $this->url = "localhost";
          $this->name = "root";
          $this->password = "root";
-         $this->bd_name = "licey";
+         $this->db_name = "admin_base";
       }
 
      function getConnectDB(){
       try {
+         session_start();
          $this->mysqli = new mysqli($this->url, $this->name, $this->password, $this->db_name);
          if ($this->mysqli->connect_errno){
            throw new Exception("Conaction failed.");

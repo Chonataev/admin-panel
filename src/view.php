@@ -24,6 +24,7 @@
          $this->classes = new Classes();
          $this->journal = new Journal();
          $this->error = new Errors();
+         $this->read = new Read();
          
 
       }
@@ -44,6 +45,7 @@
 
       function getGallery(){
          $this->gallery->setHtmlBlocks($this->head);
+         $this->gallery->getArr($this->read->getGallery());
          $this->gallery->getContext();
       }
 
