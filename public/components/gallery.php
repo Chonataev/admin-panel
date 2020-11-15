@@ -29,7 +29,7 @@ include_once "libs/db.php";
                if(isset($_POST["edit"])){
                   $id=$_POST['id'];
                   $title=$_POST['title'];
-                  $url=$_POST['lilk'];
+                  $url=$_POST['link'];
                   $update = false;
                }
                else{
@@ -108,7 +108,7 @@ include_once "libs/db.php";
                            <td><form action="gallery" method="POST">
                                     <input type="hidden" name="id" value=<?=$el['id']?>>
                                     <input type="hidden" name="title" value=<?=$el['title']?>>
-                                    <input type="hidden" name="lilk" value=<?=$el['url']?>>
+                                    <input type="hidden" name="link" value=<?=$el['url']?>>
                                  <button name="edit" class="btn btn-primary">edit</button>
                            </form></td>
                            <td>

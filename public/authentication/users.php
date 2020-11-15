@@ -3,9 +3,6 @@
    class Users{
       private $head;
 
-      function __construct(){
-      }
-
       function setHtmlBlocks($head){
          $this->head = $head;
       }

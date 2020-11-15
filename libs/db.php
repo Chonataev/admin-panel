@@ -14,7 +14,6 @@
 
      function getConnectDB(){
       try {
-         session_start();
          $this->mysqli = new mysqli($this->url, $this->name, $this->password, $this->db_name);
          if ($this->mysqli->connect_errno){
            throw new Exception("Conaction failed.");
