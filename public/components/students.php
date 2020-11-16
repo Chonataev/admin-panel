@@ -2,13 +2,39 @@
 
 class Students{
 private $head;
-
-
+    private $arr = [];
+    private $array;
     function setHtmlBlocks($head){
         $this->head = $head;
     }
+    function getArr($arr){
+        $this->arr = $arr;
+    }
 
     function getContext(){
+        ?>
+        <?$this->head->getContext();
+
+
+        if (isset($_POST["edit"])) {
+            $id = $_POST['id'];
+            $name = $_POST['name'];
+            $class = $_POST['class'];
+            $update = false;
+        } else {
+            $id = '';
+            $name = '';
+            $class = '';
+            $update = true;
+        }
+        if(isset($_SESSION['message'])):?>
+        <div class="alert alert-<?=$_SESSION['msg_type'] ?>">
+            <?php
+
+            echo $_SESSION['message'];
+            unset($_SESSION['message']);
+            ?></div><?php
+        endif;
         ?>
         <?$this->head->getContext();?>
         <div class="container">
@@ -21,28 +47,24 @@ private $head;
             <h3 class="mt-3">Править таблицу "Группы"</h3>
             <div class="">
                 <h5 class="mb-3 mt-2">Редактировать данные</h5>
-                <form class="needs-validation" novalidate="">
+                <form class="needs-validation" novalidate="" action="students" method="post">
                     <div class=" mb-3">
                         <label for="firstName">Имя</label>
-                        <input type="text" class="form-control" id="firstName" placeholder="Введите имя" value="" required="">
+                        <input type="text" class="form-control" name="name" id="firstName" placeholder="Введите Ф.И.О." value="<?=$name?>" required="">
                     </div>
                     <div class="mb-3">
-                        <label for="lastName">Фамилия</label>
-                        <input type="text" class="form-control" id="lastName" placeholder="Введите фамилия" value="" required="">
+                        <label for="lastName">Класс</label>
+                        <input type="text" class="form-control" name="class" id="lastName" placeholder="Введите класс ученика" value="<?=$class?>" required="">
                     </div>
-                    <div class="mb-3">
-                        <label for="firstName">login</label>
-                        <input type="text" class="form-control" id="lastName" placeholder="Введите login" value="" required="">
-                    </div>
-                    <div class="mb-3">
-                        <label for="lastName">password</label>
-                        <input type="text" class="form-control" id="lastName" placeholder="Введите password" value="" required="">
-                    </div>
-                    <div class="mb-3">
-                        <label for="firstName">Класс</label>
-                        <input type="text" class="form-control" id="lastName" placeholder="Введите класс" value="" required="">
-                    </div>
-                    <button class="btn btn-primary mb-2">Создать</button>
+                    <?php
+                    if($update === false):?>
+                        <button class="btn btn-info mb-2" type="submit">Изменить</button>
+                        <input type="hidden" name="update" value="students">
+                        <input type="hidden" name="id" value=<?=$id?>>
+                    <?php else:?>
+                        <button class="btn btn-primary mb-2" type="submit">Создать</button>
+                        <input type="hidden" name="create" value="students">
+                    <?endif?>
                 </form>
             </div>
             <table class="table">
@@ -50,25 +72,32 @@ private $head;
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Имя</th>
-                    <th scope="col">Фамилия</th>
-                    <th scope="col">login</th>
-                    <th scope="col">password</th>
-                    <th scope="col">класс</th>
+                    <th scope="col">Kласс</th>
                     <th scope="col">Изменить</th>
                     <th scope="col">Удалить</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Асан</td>
-                    <td>Исхаков</td>
-                    <td>123</td>
-                    <td>123</td>
-                    <td>@11A</td>
-                    <td><button type="button" class="btn btn-success">Изменить</button></td>
-                    <td><button type="button" class="btn btn-danger">Удалить</button></td>
-                </tr>
+                <?php foreach($this->arr as $el):?>
+                    <tr>
+                        <th scope="row"><?=$el['id']?></th>
+                        <td><?=$el['name']?></td>
+                        <td><?=$el['class']?></td>
+                        <td><form action="students" method="POST">
+                                <input type="hidden" name="id" value=<?=$el['id']?>>
+                                <input type="hidden" name="name" value=<?=$el['name']?>>
+                                <input type="hidden" name="class" value=<?=$el['class']?>>
+                                <button name="edit" class="btn btn-primary">edit</button>
+                            </form></td>
+                        <td>
+                            <form action='students' class="delete" method="POST">
+                                <input type="hidden" name="delete" value="students">
+                                <input type="hidden" name="id" value=<?=$el['id']?>>
+                                <button type="submit" class="btn btn-danger">Удалить</button>
+                            </form>
+                        </td>
+                    </tr>
+                <?endforeach?>
                 </tbody>
             </table>
         <?

@@ -6,6 +6,9 @@
       $url =  $_REQUEST["url"];
    }
 
-   $controller->printPage($url,$_POST);
+   $arr =[];
+   if(isset($_POST)){
+       $arr = $_POST;
+   }
 
-?>
+   $controller->printPage($url,$arr);

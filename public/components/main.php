@@ -32,6 +32,7 @@
                 <a href="students" class="btn btn-outline-primary col-sm-6  btn-block">Редактировать таблицу Учеников</a>
                <a href="users" class="btn btn-outline-primary col-sm-6  btn-block">Редактировать таблицу Пользователи</a>
                <a href="teachers" class="btn btn-outline-primary col-sm-6  btn-block">Редактировать таблицу Учителей</a>
+               <a href="performance" class="btn btn-outline-primary col-sm-6  btn-block">Успеваемость ученика</a>
                <a href="classes" class="btn btn-outline-primary col-sm-6  btn-block mb-5">Редактировать таблицу Классов</a>
 
             <h4 class="border-bottom border-gray pb-2 mb-4">КАТАЛОГИ</h4>

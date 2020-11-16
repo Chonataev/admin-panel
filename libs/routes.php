@@ -6,6 +6,18 @@
    require_once("public/components/gallery.php");
    require_once("public/components/diary.php");
    require_once("public/components/error.php");
+   require_once("public/components/students.php");
+   require_once("public/components/zero.php");
+   require_once("public/components/performance.php");
+   require_once("public/components/quarter_1.php");
+   require_once("public/components/quarter_2.php");
+   require_once("public/components/quarter_3.php");
+   require_once("public/components/quarter_4.php");
+   require_once("public/components/srs.php");
+   require_once("public/components/year.php");
+   require_once("public/components/ort_1.php");
+   require_once("public/components/ort_2.php");
+   require_once("public/components/ort.php");
    require_once("public/authentication/users.php");
    require_once("public/authentication/classes.php");
    require_once("public/authentication/journal.php");

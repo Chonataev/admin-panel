@@ -1,0 +1,84 @@
+.input{
+    margin-left: 8px;
+}
+
+.container1{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.wrapper {
+    border: 1px solid #D3D3D3;
+    box-shadow: inset 2px 2px 5px rgba(154, 147, 140, 0.5), 1px 1px 5px rgba(255, 255, 255, 1);
+    margin: 5px;
+}
+.table_head{
+    -webkit-writing-mode: vertical-rl; writing-mode:tb-rl;
+}
+.table{
+    margin-left: -50px;}
+td{
+    border: 1px solid #d2d2d2;
+}
+th{
+    font-size: 10pt;
+}
+.name_table{
+    width: 200px;
+    font-size: 10pt;
+}
+.head{
+    width: 100%; position: fixed; height: 109px; top: 0;
+
+}
+
+.table-fixed-head {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    height: 100vh;
+}
+
+.table-fixed-head th,
+.table-fixed-head td {
+    padding: 5px;
+    text-align: center;
+    width: 33.333vw;
+}
+
+.table-fixed-head th{
+    background-color: #333;
+    color: #FDFDFD;
+}
+
+.table-fixed-head thead tr {
+    display: block;
+    position: relative;
+    padding: 5px;
+}
+
+.table-fixed-head tbody {
+    display: block;
+    overflow: auto;
+    width: 100%;
+    height: calc(100vh - 30px);
+}
+
+.table-fixed-head tbody tr:nth-child(even) {
+    background-color: #DDD;
+}
+.width{
+    width: 200px;
+}
+.con{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+@media screen and (max-width: 700px){
+    .container1{
+        grid-template-columns: 1fr 1fr;
+    }
+    .con{
+        grid-template-columns: 1fr 1fr;
+    }
+}

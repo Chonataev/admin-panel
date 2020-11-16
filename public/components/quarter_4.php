@@ -1,8 +1,6 @@
 <?php
-
-class Quarter_2
+class quarter_4
 {
-
     private $head;
     private $arr = [];
     private $students_list = [];
@@ -58,44 +56,44 @@ class Quarter_2
 
             <h5 class="mb-3 mt-2">Выберите класс</h5>
             <div class="con">
-                <form action="quarter_2" method="post">
+                <form action="quarter_4" method="post">
                     <button class="btn btn-primary mb-2 width" type="submit">9-A</button>
                     <input type="hidden" name="select" value="9-А"></form>
-                <form action="quarter_2" method="post">
+                <form action="quarter_4" method="post">
                     <button class="btn btn-primary mb-2 width" type="submit">9-Б</button>
                     <input type="hidden" name="select" value="9-Б"></form>
-                <form action="quarter_2" method="post">
+                <form action="quarter_4" method="post">
                     <button class="btn btn-primary mb-2 width" type="submit">9-B</button>
                     <input type="hidden" name="select" value="9-В"></form>
-                <form action="quarter_2" method="post">
+                <form action="quarter_4" method="post">
                     <button class="btn btn-primary mb-2 width" type="submit">9-Г</button>
                     <input type="hidden" name="select" value="9-Г"></form>
-                <form action="quarter_2" method="post">
+                <form action="quarter_4" method="post">
                     <button class="btn btn-primary mb-2 width" type="submit">10-A</button>
                     <input type="hidden" name="select" value="10-А"></form>
-                <form action="quarter_2" method="post">
+                <form action="quarter_4" method="post">
                     <button class="btn btn-primary mb-2 width" type="submit">10-Б</button>
                     <input type="hidden" name="select" value="10-Б"></form>
-                <form action="quarter_2" method="post">
+                <form action="quarter_4" method="post">
                     <button class="btn btn-primary mb-2 width" type="submit">10-B</button>
                     <input type="hidden" name="select" value="10-В"></form>
-                <form action="quarter_2" method="post">
+                <form action="quarter_4" method="post">
                     <button class="btn btn-primary mb-2 width" type="submit">10-Г</button>
                     <input type="hidden" name="select" value="10-Г"></form>
-                <form action="quarter_2" method="post">
+                <form action="quarter_4" method="post">
                     <button class="btn btn-primary mb-2 width" type="submit">11-A</button>
                     <input type="hidden" name="select" value="11-А"></form>
-                <form action="quarter_2" method="post">
+                <form action="quarter_4" method="post">
                     <button class="btn btn-primary mb-2 width" type="submit">11-Б</button>
                     <input type="hidden" name="select" value="11-Б"></form>
-                <form action="quarter_2" method="post">
+                <form action="quarter_4" method="post">
                     <button class="btn btn-primary mb-2 width" type="submit">11-B</button>
                     <input type="hidden" name="select" value="11-В"></form>
-                <form action="quarter_2" method="post">
+                <form action="quarter_4" method="post">
                     <button class="btn btn-primary mb-2 width" type="submit">11-Г</button>
                     <input type="hidden" name="select" value="11-Г"></form>
             </div>
-            <form class="needs-validation" novalidate="" action="quarter_2 " method="POST">
+            <form class="needs-validation" novalidate="" action="quarter_4 " method="POST">
                 <select name = "name" class="custom-select custom-select-lg mb-3">
                     <?php
                     $s = array();
@@ -345,7 +343,7 @@ class Quarter_2
 
 
                 <button class="btn btn-primary mb-2" type="submit">Создать</button>
-                <input type="hidden" name="create" value="quarter_2">
+                <input type="hidden" name="create" value="quarter_4">
 
             </form>
         </div><div class="container-fluid">
@@ -399,8 +397,8 @@ class Quarter_2
                         <td><?=$el['astronomy']?></td>
 
                         <td>
-                            <form action='quarter_2' class="delete" method="POST">
-                                <input type="hidden" name="delete" value="quarter_2">
+                            <form action='quarter_4' class="delete" method="POST">
+                                <input type="hidden" name="delete" value="quarter_4">
                                 <input type="hidden" name="id" value=<?=$el['id']?>>
                                 <button type="submit" class="btn btn-danger">Удалить</button>
                             </form>
@@ -411,4 +409,5 @@ class Quarter_2
             </table>
         <? $this->students_list[] = "";
     }
+
 }
