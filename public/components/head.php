@@ -1,9 +1,6 @@
 <?php 
 
    class Head{
-      function __construct(){
-         $this->head = $head;
-      }
       function getContext(){
          ?>
          

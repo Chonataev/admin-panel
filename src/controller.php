@@ -8,13 +8,8 @@
       private $actions;
       private $read;
       private $zero;
-     /* function __construct(){
-         $this->view = new View();
-          $this->actions = new Actions();
-         $this->read = new Read();
 
-      }
-*/
+
        function __construct(){
            $this->actions = new Actions();
        }
@@ -27,6 +22,8 @@
                break;
             case 'aboutUs':
                 $this->view = new View();
+                $this->aboutUs = new Actions();
+                $this->aboutUs->getActions($arr);
                $this->view->getAboutUs();
                break;
             case 'news':
@@ -35,42 +32,44 @@
                break;
             case 'gallery':
                 $this->view = new View();
-               $this->view->getGallery();
-               break;
+                $this->gallery = new Actions();
+                $this->gallery->getActions($arr);
+                $this->view->getGallery();
+            break;
             case 'students':
                 $this->view = new View();
                 $this->students = new Actions();
                 $this->students->getActions($arr);
-               $this->view->getStudents($this->actions->getStudentsList($arr['select']));
-               break;
+                $this->view->getStudents($this->actions->getStudentsList($arr['select']));
+            break;
             case 'diary':
                 $this->view = new View();
-               $this->view->getDiary();
-               break;
+                $this->view->getDiary();
+            break;
             case 'users':
                 $this->view = new View();
-               $this->view->getUsers();
+                $this->view->getUsers();
                break;
             case 'classes':
                 $this->view = new View();
-               $this->view->getClasses();
+                $this->view->getClasses();
                break;
              case 'journal':
                 $this->view = new View();
-               $this->view->getJournal();
+                $this->view->getJournal();
                break;
             case 'actions':
                break;
             case 'zero':
                 $this->actions = new Actions();
-                 $this->view = new View();
-                 $this->actions->getActions($arr);
-                 $this->view->getZero($this->actions->getStudentsList($arr['select']));
-                 break;
+                $this->view = new View();
+                $this->actions->getActions($arr);
+                $this->view->getZero($this->actions->getStudentsList($arr['select']));
+            break;
             case 'performance':
-                 $this->view = new View();
-                 $this->view->getPerformance();
-                 break;
+                $this->view = new View();
+                $this->view->getPerformance();
+            break;
             case 'quarter_1':
                  $this->actions = new Actions();
                  $this->view = new View();

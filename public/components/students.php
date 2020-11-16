@@ -1,9 +1,7 @@
 <?php
 
 class Students{
-private $head;
     private $arr = [];
-    private $array;
     function setHtmlBlocks($head){
         $this->head = $head;
     }
@@ -33,9 +31,8 @@ private $head;
 
             echo $_SESSION['message'];
             unset($_SESSION['message']);
-            ?></div><?php
-        endif;
-        ?>
+            ?></div>
+            <?endif;?>
         <?$this->head->getContext();?>
         <div class="container">
             <div class="media d-flex mt-5">
@@ -50,18 +47,18 @@ private $head;
                 <form class="needs-validation" novalidate="" action="students" method="post">
                     <div class=" mb-3">
                         <label for="firstName">Имя</label>
-                        <input type="text" class="form-control" name="name" id="firstName" placeholder="Введите Ф.И.О." value="<?=$name?>" required="">
+                        <input type="text" class="form-control" name="name" id="firstName" placeholder="Введите Ф.И.О." value="<? echo $name?>" required="">
                     </div>
                     <div class="mb-3">
                         <label for="lastName">Класс</label>
-                        <input type="text" class="form-control" name="class" id="lastName" placeholder="Введите класс ученика" value="<?=$class?>" required="">
+                        <input type="text" class="form-control" name="class" id="lastName" placeholder="Введите класс ученика" value="<? echo $class?>" required="">
                     </div>
-                    <?php
+                    <?
                     if($update === false):?>
                         <button class="btn btn-info mb-2" type="submit">Изменить</button>
                         <input type="hidden" name="update" value="students">
                         <input type="hidden" name="id" value=<?=$id?>>
-                    <?php else:?>
+                    <? else:?>
                         <button class="btn btn-primary mb-2" type="submit">Создать</button>
                         <input type="hidden" name="create" value="students">
                     <?endif?>

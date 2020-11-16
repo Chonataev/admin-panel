@@ -1,9 +1,7 @@
 <?php
-include_once "libs/db.php";
+include_once "libs/db.php"; 
    class Gallery{
-      private $head;
       private $arr = [];
-      private $array;
       function __construct(){
          $this->conn = new DB();
          $this->mysqli = $this->conn->getConnectDB();
@@ -20,28 +18,21 @@ include_once "libs/db.php";
       
       function getContext(){
          ?>
-      
-
          <?$this->head->getContext();?>
          <div class="container">
          <?php 
-
-               if(isset($_POST["edit"])){
-                  $id=$_POST['id'];
-                  $title=$_POST['title'];
-                  $url=$_POST['link'];
-                  $update = false;
-               }
-               else{
-                  $id='';
-                  $title='';
-                  $url='';
-                  $update = true;
-               }
+            if(isset($_POST["edit"])){
+               $id=$_POST['id'];
+               $type=$_POST['type'];
+               $update = false;
+            }
+            else{
+               $id='';
+               $type='Тематика';
+               $update = true;
+            }
          ?>
-         <?php 
-
-            if(isset($_SESSION['message'])):?>
+         <?php if(isset($_SESSION['message'])):?>
                <div class="alert alert-<?=$_SESSION['msg_type'] ?>">
                   <?php
 
@@ -64,26 +55,31 @@ include_once "libs/db.php";
             </script>
             <h3 class="mt-3">Править таблицу "Галерея"</h3>
                <div class="">
-                  <h5 class="mb-3 mt-2">Редактировать данные</h5>
-                  <form class="needs-validation" novalidate="" action="actions" method="POST">
+                  <form class="needs-validation" novalidate="" action="gallery" method="POST" enctype="multipart/form-data">
                      <div class=" mb-3">
-                        <label for="firstName">Заголовок</label>
-                        <input type="text" class="form-control" id="firstName" placeholder="Введите заголовок" 
-                        value="<?=$title?>" name="title">
+                        <h4 class="font-weight-normal pt-1 pb-1" for="firstName">Заголовок</h4>
+                        <select class="custom-select col-4" value="<?=$type?>" name="type_in">>
+                           <option><?=$type?></option>
+                           <option>1-сентября</option>
+                           <option>День учителя</option>
+                           <option>Новый год</option>
+                           <option>23-феврфля</option>
+                           <option>8-марта</option>
+                           <option>21-марта</option>
+                           <option>9-мая</option>
+                           <option>Последний звонок</option>
+                        </select>
                      </div>
-                     <div class="mb-3">
-                        <label for="lastName">Url</label>
-                        <input type="text" class="form-control" id="lastName" placeholder="Введите ссылку" 
-                           value="<?=$url?>" name="link">
-                     </div>
+                     <h4 class="font-weight-normal pt-1 pb-2" for="firstName">Загрузить изображение</h4>
+                        <input type="file" name="image">
                      <?php 
                      if($update === false):?>
                         <button class="btn btn-info mb-2" type="submit">Изменить</button>
                         <input type="hidden" name="update" value="gallery">
                         <input type="hidden" name="id" value=<?=$id?>>
                      <?php else:?>
-                        <button class="btn btn-primary mb-2" type="submit">Создать</button>
-                        <input type="hidden" name="create" value="gallery">
+                        <div><button class="btn btn-primary mb-2 mt-4" type="submit">Создать</button>
+                        <input type="hidden" name="create" value="gallery"></div>
                      <?endif?>
                   </form>
                </div>
@@ -93,33 +89,33 @@ include_once "libs/db.php";
                   <thead>
                      <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Title</th>
-                        <th scope="col">Url</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Image</th>
                         <th scope="col">Update</th>
                         <th scope="col">Delete</th>
                      </tr>
                   </thead>
-                  <tbody>
-                     <?php foreach($this->arr as $el):?> 
-                        <tr>
-                           <th scope="row"><?=$el['id'];?></th>
-                           <td><?=$el['title'];?></td>
-                           <td><?=$el['url'];?></td> 
-                           <td><form action="gallery" method="POST">
-                                    <input type="hidden" name="id" value=<?=$el['id']?>>
-                                    <input type="hidden" name="title" value=<?=$el['title']?>>
-                                    <input type="hidden" name="link" value=<?=$el['url']?>>
-                                 <button name="edit" class="btn btn-primary">edit</button>
-                           </form></td>
-                           <td>
-                              <form action='actions' class="delete" method="POST">
-                                 <input type="hidden" name="delete" value="gallery">
+                  <tbody>     
+                     <?php foreach($this->arr as $el):
+                     $s =  base64_encode($el['image']); ?>
+                     <tr class="align-middle  align-items-center">
+                        <th  scope="row"><?=$el['id'];?></th>
+                        <td><?=$el['type'];?></td>
+                        <td><img style="width:70px; height:60px" src="data:image/jpeg;base64, <?=$s?>"></td> 
+                        <td><form action="gallery" method="POST">
                                  <input type="hidden" name="id" value=<?=$el['id']?>>
-                                 <button type="sumbit" class="btn btn-danger">Удалить</button>
-                              </form> 
-                           </td>
-                        </tr>
-                     <?endforeach?>
+                                 <input type="hidden" name="type" value=<?=$el['type']?>>
+                              <button name="edit" class="btn btn-primary">edit</button>
+                        </form></td>
+                        <td>
+                           <form action='gallery' class="delete" method="POST">
+                              <input type="hidden" name="delete" value="gallery">
+                              <input type="hidden" name="id" value=<?=$el['id']?>>
+                              <button type="sumbit" class="btn btn-danger">Удалить</button>
+                           </form> 
+                        </td>
+                     </tr>
+                  <?endforeach?>
                   </tbody>
                </table>
             </div>
